@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listagem de Convidados</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Editar</th>
+      <th>Remover</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @convidados.each do |convidado| %>
+      <tr>
+        <td><%= convidado.name %></td>
+        <td><%= convidado.email %></td>
+        <td><%= link_to edit_convidado_path(convidado), class: "btn btn-primary btn-xs" do %>
+              <span class="fa fa-edit"> Editar</span>
+              <% end %>
+              </td>
+        <td><%= link_to convidado, class: "btn btn-danger btn-xs",  method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <span class="fa fa-trash"> Remover</span>
+              <% end %>
+              </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Novo Convidado', new_convidado_path, class: "btn btn-primary" %>

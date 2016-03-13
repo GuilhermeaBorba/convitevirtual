@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  anfitriao: MyString
+  anos: 1
+  dataevento: MyString
+  horainicio: MyString
+  horafinal: MyString
+
+two:
+  anfitriao: MyString
+  anos: 1
+  dataevento: MyString
+  horainicio: MyString
+  horafinal: MyString

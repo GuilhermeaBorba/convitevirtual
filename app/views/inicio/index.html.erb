@@ -1,0 +1,11 @@
+<h1 class="titulo text-center">Convite Virtual Hora Maluca</h1>
+<p class="text-center">Parabéns por realizar a sua festa conosco, neste painel você poderá enviar os convites para todas as pessoas que gostaria que comparecesse a sua festa!</p>
+<p class="text-center">Faça o login para entrar, caso não tenha acesso, realize o cadastro.</p>
+
+<div class="text-center">
+  <% if signed_in? %>
+      <% nil %>
+      <% else %>
+      <%= button_to "ENTRAR", new_user_session_path, class: "meubutton" %>
+         <% end %>
+    </div>

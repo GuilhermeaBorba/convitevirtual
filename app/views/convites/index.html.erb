@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listagem de  Convites</h1>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>Anfitriao</th>
+      <th>Anos</th>
+      <th>Dataevento</th>
+      <th>Horainicio</th>
+      <th>Horafinal</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @convites.each do |convite| %>
+      <tr>
+        <td><%= convite.anfitriao %></td>
+        <td><%= convite.anos %></td>
+        <td><%= convite.dataevento %></td>
+        <td><%= convite.horainicio %></td>
+        <td><%= convite.horafinal %></td>
+        <td><%= link_to edit_convite_path(convite), class: "btn btn-primary btn-xs" do %>
+              <span class="fa fa-edit"> Editar</span>
+              <% end %>
+          </td>
+        <td><%= link_to convite,class: "btn btn-danger btn-xs", method: :delete, data: { confirm: 'Tem certeza que deseja apagar?' } do %>
+         <span class="fa fa-trash"> Remover</span>
+        <% end %>
+          </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Adicionar Convite', new_convite_path, class: "btn btn-primary" %>

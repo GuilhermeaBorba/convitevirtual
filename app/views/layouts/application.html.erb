@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+  <title>Convitehoramaluca</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+<div class="navbar navbar-default role="navigation">
+  <div class="container ">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class="input-group">
+        <%= link_to "Convite Virtual", inicio_index_path, class:"navbar-brand" %>
+        <span><img class="logo" src="/assets/logo_hora_maluca.svg"></span></a>
+        </div>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+
+        <ul class="nav navbar-nav">
+
+          <% if signed_in? %>
+          <li class="menu-item"><%= link_to "Convites", convites_path %></li>
+
+
+        <li class="menu-item"><%= link_to "Convidados", convidados_path %></li>
+
+
+        <li class="menu-item"><a href="#">Enviar Convites </a></li>
+              <% else %>
+          <% nil %>
+                <% end %>
+      </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+
+                  <li class="menu-item dropdown">
+                    <% if signed_in? %>
+                    <%= link_to " Sair", destroy_user_session_path, class:"fa fa-sign-in size-icon", method: :delete %>
+                            <% else %>
+                            <%= link_to " Entrar", new_user_session_path, class:"fa fa-user size-icon"  %>
+                        <% end %>
+
+                  </li>
+
+            </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if signed_in? %>
+
+            <i>Olá<a class="margintop"> <%= link_to current_user.name, edit_user_registration_path, class:"linkuser" %>, seja bem vindo(a)!</a></i>
+
+            <% else %>
+            <li><a href="#"></a></li>
+            <% end %>
+
+      </ul>
+
+      <!-- DROPDOWN LOGIN STARTS HERE  -->
+
+      <!-- DROPDOWN LOGIN ENDS HERE  -->
+    </div>
+  </div>
+</div>
+
+<div class="container">
+<%= yield %>
+</div>
+</body>
+</html>
